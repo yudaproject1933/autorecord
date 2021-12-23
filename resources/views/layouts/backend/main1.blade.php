@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lumino - Dashboard</title>
+	<title>Auto Record 3000</title>
 
 	<link href="{{asset('backend/asset/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/asset/css/font-awesome.min.css')}}" rel="stylesheet">
