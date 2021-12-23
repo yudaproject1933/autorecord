@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function() {
     //payment
     Route::resource('/payment', 'App\Http\Controllers\Dashboard\PaymentController');  
     Route::post('/payment/upload_docs', 'App\Http\Controllers\Dashboard\PaymentController@upload_docs');
+    Route::get('/sendEmail/{id}', 'App\Http\Controllers\Dashboard\PaymentController@sendEmail');
      
     // Route::get('/payment/preview_report', function () {
     //     return view('dashboard.payment.report_sample');

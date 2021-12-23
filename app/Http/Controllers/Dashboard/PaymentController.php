@@ -4,9 +4,14 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Transaction;
+
+use App\Mail\TransactionEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Auth;
+use File;
 
 class PaymentController extends Controller
 {
@@ -61,14 +66,64 @@ class PaymentController extends Controller
 
     public function upload_docs(Request $request)
     {
-        
         if ($request->file('file_docs')) {
-            dd('masuk');
+            $model = Transaction::findOrFail($request->transaction_id);
+
+            $file = $request->file('file_docs');
+            $name_file = $file->getClientOriginalName();
+            $name_file = $model['vin'].'.pdf';
+            // dd($name_file);
+
+            $path = Storage::putFileAs('public/report',$file, $name_file);
+
+            $model = Transaction::findOrFail($request->transaction_id);
+            $model->update([
+                'link' => $path,
+                'updated_date' => date('Y-m-d H:i:s')
+            ]);
+
+            return redirect()->back();
+
         }else{
-            dump($request->script_page);
-            dump($request->transaction_id);
-            dd('sini');
+            $data = Transaction::findOrFail($request->transaction_id);
+            $vin = $data->vin;
+        
+            $file_name = $vin.'.blade.php';
+            $content_file = $request->script_page.' '.File::get(storage_path('setting_report/setting_report.blade.php'));
+            // $dir = Storage::put(storage_path('app/public/report/'.$file_name),$content_file);
+            // $dir = Storage::disk('local')->put('app/public/report/'.$file_name, $content_file);
+            
+            return $content_file;
         }
+    }
+
+    public function sendEmail($id)
+    {
+        $model = Transaction::findOrFail($id);
+        $docs = Storage::path('app/public/report/'.$model['vin'].'.pdf');
+
+        // return $docs;
+        $details = [
+            'title' => 'Mail From Premium Report',
+            'body' => 'test send email',
+            'link'  => url('/').Storage::url($model['link']),
+            'docs_attach' => $docs,
+            'docs_name' => '',
+            'vin' => $model['vin'],
+        ];
+
+        $email = $model->email;
+        $kirim = Mail::to($email)->send(new TransactionEmail($details));
+
+        $model->update([
+            'status_payment' => 'success',
+            'updated_date' => date('Y-m-d H:i:s')
+        ]);
+
+        return [
+            'success' => true,
+            'message' => "Email berhasil dikirim"
+        ];
     }
 
     public function preview_report()

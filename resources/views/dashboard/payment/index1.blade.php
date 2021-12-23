@@ -85,17 +85,20 @@
                         </thead>
                         <tbody>
                         @foreach ($result_model as $item => $value)
+                        @php $path = Storage::url($value['link']); @endphp
                             <tr>
                                 <td>
                                     <button class="btn btn-sm btn-danger" title="Generate" onclick="generate({{ $value->id }})"><i class="fa fa-file-code-o"></i></button>
                                     {{-- <button class="btn btn-sm btn-warning" title="Get File"><i class="fa fa-file-alt"></i></button> --}}
                                     <a class="btn btn-sm btn-warning" title="Download Docs" href="https://www.autotrader.com/cars-for-sale/experian?SID=ATCbI8RQrUb0njwc6r&VIN={{$value->vin}}&brand=atc&ps=true" target="_blank"><i class="fa fa fa-file-pdf-o"></i></a>&nbsp;
-                                    <button class="btn btn-sm btn-primary" title="Send Email"><i class="fa fa-paper-plane"></i></button>
+                                    <button class="btn btn-sm btn-primary" title="Send Email" onclick="SendEmail({{$value->id}})"><i class="fa fa-paper-plane"></i></button>
                                 </td>
                                 <td>{{$value['vin']}}</td>
                                 <td>{{$value['phone']}}</td>
                                 <td>{{$value['email']}}</td>
-                                <td><a href="{{$value['link']}}" target="_blank">{{$value['link']}}</a></td>
+                                <td>
+                                    <a href="{{$path}}" target="_blank">{{is_null($value['link']) ? '' : $path}}</a>
+                                </td>
                                 <td>{{$value['status_payment']}}</td>
                             </tr>
                         @endforeach
@@ -109,6 +112,33 @@
         </div>
     </div><!-- /.row -->
 </div><!--/.main-->
+
+<div class="modal fade" id="modal-generate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Generate & Upload Report</h5>
+        </div>
+    <form class="form-group" method="POST" action="/payment/upload_docs" enctype="multipart/form-data" id="form-docs">
+        @csrf
+        <div class="modal-body">
+            <input type="hidden" name="transaction_id" id="transaction_id">
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">File:</label>
+                <input type="file" name="file_docs" class="form-control">
+                </div>
+            <div class="mb-3">
+                <label for="message-text" class="col-form-label">Script Docs:</label>
+                <textarea class="form-control" name="script_page" id="message-text" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('js')
@@ -118,5 +148,73 @@
                 "scrollX": true
             } );
         } );
+
+        function generate(id){
+            $('#transaction_id').val(id);
+            $('#modal-generate').modal('toggle')
+        }
+
+        function SendEmail(id){
+            Swal.fire({
+                title: 'Are you sure to send Email?',
+                text: "Please check before send",
+                icon: 'warning',
+                showCancelButton: true,
+                allowOutsideClick: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Send!',
+                showLoaderOnConfirm: true,
+                allowOutsideClick: () => !Swal.isLoading(),
+                preConfirm: function(){
+                    return $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            url : "/sendEmail/"+id,
+                            method : "GET",
+                            contentType: "application/json",
+                            dataType: "json",
+                            success : function (res) {
+                                if (res.success) {
+                                    Swal.fire({
+                                        title: 'Berhasil',
+                                        text: res.message,
+                                        icon: 'success',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: 'oke'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                location.reload();
+                                            }else{
+                                                location.reload();
+                                            }
+                                    });
+                                }else{
+                                    Swal.fire({
+                                        title: 'Gagal',
+                                        text: "Gagal send email",
+                                        icon: 'error',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: 'oke'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                location.reload();
+                                            }else{
+                                                location.reload();
+                                            }
+                                    });
+                                }
+                            },
+                            error:function (xhr) {  
+                            }
+                        });
+                }
+            });
+        }
     </script>
 @endsection

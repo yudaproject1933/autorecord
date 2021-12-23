@@ -44,6 +44,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
 
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('js')
 	<script>
         $( document ).ready(function() {
