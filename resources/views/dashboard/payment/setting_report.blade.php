@@ -24,6 +24,9 @@ $( document ).ready(function() {
     // $('.col .at-glance').append('<span>YOUR VEHICLE SUMMARY</span>');
     $('.owner-history-outer').appendTo('.summary-area-print');
 
+    $('.numOwner-section').css({"height" : "220px"});
+    // $('.pic').attr("src","{{asset('images/multi_user.png')}}");
+
     $('.section-tab').remove();
     $('.reportSection-tab').remove();
 
