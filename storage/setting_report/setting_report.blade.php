@@ -12,7 +12,7 @@
         $('.rundate').css({"text-align": "left", "font-size": "13px", "padding-left": "0px", "font-weight": "bold"});
         $('.rundate').appendTo('#date_report');
 
-        $('.rightLogo').attr("src","{{asset('images/logo7.png')}}");
+        $('.rightLogo').attr("src","https://vehicledata3000.com/public/images/logo7.png");
         $('.rightLogo').css({"width" : "100px"});
     
         $('.logo-title h1').html('Vehicle Summary Record');
