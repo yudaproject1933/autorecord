@@ -34,6 +34,9 @@ Route::post('/preview', 'App\Http\Controllers\Checkout\CheckoutController@previe
 
 Route::get('/preview_report', 'App\Http\Controllers\Dashboard\PaymentController@preview_report');
 
+//contact us
+Route::post('/checkout/contact_us', 'App\Http\Controllers\Checkout\CheckoutController@contact_us');
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');

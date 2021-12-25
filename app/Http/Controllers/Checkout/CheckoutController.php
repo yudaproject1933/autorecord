@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Transaction;
 use Auth;
 
+use Illuminate\Support\Facades\Mail;
+
 class CheckoutController extends Controller
 {
     /**
@@ -135,6 +137,28 @@ class CheckoutController extends Controller
         // dd($data);
     }
 
+    public function contact_us(Request $request){
+        $message_send = [
+            'name' => $request->name,
+            'subject' => $request->subject,
+            'email' => $request->email,
+            'message_body' => $request->message,
+        ];
+
+        $kirim = Mail::send('checkout.contact_us.template', ['body_message' => $message_send], function($message)
+                {
+                    $message->from('vehicledata3000@gmail.com','Complaint Vehicle Data 3000')
+                        ->to('cs.vehicledata3000@gmail.com')
+                        ->subject('Complaint');
+                });
+        
+        // return redirect('/');
+        return [
+            'success' => true,
+            'message' => "Email berhasil dikirim"
+        ];
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -153,24 +177,40 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        date_default_timezone_set("America/Los_Angeles");
-
         $phone = $this->clean_str($request->phone);
 
-        $model = Transaction::where([
-            'vin' => $request->vin,
-            'phone' => $phone,
-            'email' => $request->email,
-        ])->first();
 
-        if (!$model) {
-            $transaction = Transaction::create([
-                'vin' => strtoupper($request->vin),
+        if ($request->status_payment == "pending") {
+            $model = Transaction::where([
+                'vin' => $request->vin,
+                'phone' => $phone,
+                'email' => $request->email,
+                'status_payment' => "checkout",
+            ])->first();
+
+            if ($model) {
+                $model->update([
+                    'status_payment' => $request->status_payment 
+                ]);
+            }
+            
+        }else{
+            $model = Transaction::where([
+                'vin' => $request->vin,
                 'phone' => $phone,
                 'email' => $request->email,
                 'status_payment' => $request->status_payment,
-                'created_date' => date('Y-m-d H:i:s')
-            ]);
+            ])->first();
+    
+            if (!$model) {
+                $transaction = Transaction::create([
+                    'vin' => strtoupper($request->vin),
+                    'phone' => $phone,
+                    'email' => $request->email,
+                    'status_payment' => $request->status_payment,
+                    'created_date' => date('Y-m-d H:i:s')
+                ]);
+            }
         }
 
         

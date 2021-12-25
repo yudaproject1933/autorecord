@@ -9,7 +9,7 @@
                     <div class="col-md-7">
 
                         <!-- /.logo -->
-                        <div class="logo wow fadeInDown"> <a href=""><img src="{{asset('landing1/images/logo1.png')}}" alt="logo" style="width: 230px;"></a></div>
+                        <div class="logo wow fadeInDown"> <a href=""><img src="{{asset('images/logo7.png')}}" alt="logo" style="width: 120px; height: 100px;"></a></div>
 
                         <!-- /.main title -->
                         <h1 class="wow fadeInLeft">
@@ -91,6 +91,42 @@
             //     error:function (xhr) {  
             //     }
             // });
+        }
+    }
+    function contact_us() {
+        var name = $('#name').val();
+        var subject = $('#subject').val();
+        var email = $('#email').val();
+        var message = $('#message').val();
+
+        if (name != '' && subject != '' && email != '' && message != '' ) {
+            var data = {
+                name : name,
+                subject : subject,
+                email :email,
+                message : message
+            };
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url : "/checkout/contact_us",
+                method : "POST",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                dataType: "json",
+                success : function (res) {
+                    if (res.success) {
+                        Swal.fire(
+                            'Good job!',
+                            'Thank you, we will contact you via email soon!',
+                            'success'
+                        );
+                    }
+                },
+                error:function (xhr) {  
+                }
+            });
         }
     }
 </script>

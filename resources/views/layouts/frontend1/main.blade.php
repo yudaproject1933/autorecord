@@ -3,7 +3,7 @@
     <head>
 
         <!-- /.website title -->
-        <title>Auto Summary</title>
+        <title>Vehicle Data 3000</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <!-- Favicon-->
@@ -60,7 +60,7 @@
                             <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
                         </ul>
                     </div>	
-                    <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Backyard 2015 - Auto Report History  </div>
+                    <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Vehicle Data 3000 </div>
                     <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
                 </div>	
             </div>	
@@ -75,6 +75,7 @@
         <script src="{{asset('landing1/js/owl.carousel.min.js')}}"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         {{-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> --}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             new WOW().init();
         </script>

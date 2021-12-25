@@ -51,6 +51,8 @@ class PaymentController extends Controller
         }
         if ($status_payment !== '') {
             $model = $model->where('status_payment',$status_payment);
+        }else{
+            $model = $model->where('status_payment','!=',"checkout");
         }
 
         $model = $model->orderBy('created_date','DESC')->get();

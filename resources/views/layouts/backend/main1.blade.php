@@ -3,7 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Auto Record 3000</title>
+	<title>Vehicle Data 3000</title>
+	<!-- Favicon-->
+	<link rel="icon" href="{{ asset('images/favicon/favicon.ico') }}" type="image/x-icon" >
+	<link rel="icon" href="{{ asset('images/favicon/favicon-16x16.png') }}" type="image/png">
 
 	<link href="{{asset('backend/asset/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/asset/css/font-awesome.min.css')}}" rel="stylesheet">

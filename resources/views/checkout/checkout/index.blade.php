@@ -100,7 +100,11 @@
                                     <span><i class="fa fa-exclamation-circle"></i> We will send a report to your email, make sure the email is correct!</span>
                                     <hr style="margin: 10px 0px;">
                                     <input type="checkbox" onclick="form_done()" id="checkout-check" disabled>&nbsp;<label for="checkout-check"> Please confirm, if the data you entered is correct</label>
-                                    <button class="btn btn-warning btn-block btn-lg" id="checkout-payment" disabled>PayPal</button>
+                                    <br>
+                                    {{-- <button class="btn btn-warning btn-block btn-lg" id="checkout-payment" disabled>PayPal</button> --}}
+                                    <script src="{{asset('landing1/js/jquery.js')}}"></script>
+                                    @include('paypal.riyant')
+
                                     <span>By continuing to PayPal, you agree to our <a href="#" style="text-decoration: underline;">Terms of Service.</a></span>
                                 </div>
                             </div>
@@ -157,7 +161,8 @@
         var email = $('#checkout-email').val();
 
         if (vin != '' && phone != '' && email != '' && $('#checkout-check').is(':checked') ) {
-            $('#checkout-payment').prop('disabled',false);
+            // $('#checkout-payment').prop('disabled',false);
+            $('#checkout-payment').show();
             var data = {
                 vin : vin,
                 phone : phone,
@@ -182,7 +187,8 @@
                 }
             });
         }else{
-            $('#checkout-payment').prop('disabled',true);
+            // $('#checkout-payment').prop('disabled',true);
+            // $('#checkout-payment').css('display','none');
         }
     }
 </script>    

@@ -10,9 +10,9 @@
 
             <!-- /.intro content -->
             <div class="col-md-6 wow slideInRight">
-                <h3>ABOUT AUTO REPORT HISTORY</h3>
+                <h3>ABOUT Vehicle Data 3000</h3>
                 <p>
-                    Auto Report History is proud to be a service that provides vehicle history reports that display historical data from each used vehicle. If you are selling a vehicle make sure you have a history report to make a fast and secure transaction. Data shows that used car sellers in 35% of cases get the asking price when providing a detailed VIN check of their vehicle. Buying a vehicle? It is highly recommended to do a VIN check on the Vehicle History Report before buying a used vehicle to learn the true history before making a purchase. We have saved our customers thousands of dollars from buying vehicles with a hidden past.
+                    Vehicle Data 3000 is proud to be a service that provides vehicle history reports that display historical data from each used vehicle. If you are selling a vehicle make sure you have a history report to make a fast and secure transaction. Data shows that used car sellers in 35% of cases get the asking price when providing a detailed VIN check of their vehicle. Buying a vehicle? It is highly recommended to do a VIN check on the Vehicle History Report before buying a used vehicle to learn the true history before making a purchase. We have saved our customers thousands of dollars from buying vehicles with a hidden past.
                 </p>
 
                 <div class="btn-section"><a href="#feature" class="btn-default">Learn More</a></div>
@@ -301,7 +301,7 @@
                         <div class="box">
 
                             <!-- /.testimonial content -->
-                            <p class="message text-center">"I entered the registration number of the vehicle I want to purchase on the Auto Report History website and it gave me  a detailed report of the vehicle that includes important recall inforamtion and notifies me of the real condition of my vehicle."</p>
+                            <p class="message text-center">"I entered the registration number of the vehicle I want to purchase on the Vehicle Data 3000 website and it gave me  a detailed report of the vehicle that includes important recall inforamtion and notifies me of the real condition of my vehicle."</p>
                         </div>
                         <div class="client-info text-center">
 
@@ -325,7 +325,7 @@
                         <div class="client-info text-center">
 
                             <!-- /.client name -->
-                            Mike Portnoy, <span class="company">Las Vegas</span>	
+                            Mike, <span class="company">Las Vegas</span>	
                         </div>
                     </div>				
 
@@ -339,7 +339,7 @@
                         <div class="box">
 
                             <!-- /.testimonial content -->
-                            <p class="message text-center">"At first, I was really worried about my used-vehicle purchase. I could see its present condition, but, at the same time, I wanted to know if something serious happened to it before. With the help of Auto Report History, now I can see the history of the vehicle I am going to buy."</p>
+                            <p class="message text-center">"At first, I was really worried about my used-vehicle purchase. I could see its present condition, but, at the same time, I wanted to know if something serious happened to it before. With the help of Vehicle Data 3000, now I can see the history of the vehicle I am going to buy."</p>
                         </div>
                         <div class="client-info text-center">
 
@@ -386,26 +386,31 @@
                             <li><i class="pe-7s-phone"></i>+1 (123) 456-7890</br>
                                 +2 (123) 456-7890
                             </li> -->
-                            <li><i class="pe-7s-mail"></i><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                            <li><i class="pe-7s-look"></i><a href="#">www.yoursite.com</a></li>
+                            {{-- <li><i class="pe-7s-mail"></i><a href="mailto:info@yoursite.com">info@yoursite.com</a></li> --}}
+                            <li><i class="pe-7s-look"></i><a href="#">{{url('/')}}</a></li>
                         </ul>	
 
                     </div>
 
                     <!-- /.contact form -->
                     <div class="col-sm-7 contact-right">
-                        <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert( 'Thank you for your feedback!' );">
+                        <form class="form-header" action="/checkout/contact_us" role="form" method="POST" id="#">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" name="Name" id="Name" class="form-control wow fadeInUp" placeholder="Name" required/>
+                                <input type="text" name="name" id="name" class="form-control wow fadeInUp" placeholder="Your Name" required/>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="Email" id="Email" class="form-control wow fadeInUp" placeholder="Email" required/>
+                                <input type="text" name="subject" id="subject" class="form-control wow fadeInUp" placeholder="Subject" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" class="form-control wow fadeInUp" placeholder="Your Email" required/>
                             </div>					
                             <div class="form-group">
-                                <textarea name="Message" rows="20" cols="20" id="Message" class="form-control input-message wow fadeInUp"  placeholder="Message" required></textarea>
+                                <textarea name="message" rows="30" cols="20" id="message" class="form-control input-message wow fadeInUp"  placeholder="Message" required></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" value="Submit" class="btn btn-success wow fadeInUp" />
+                                {{-- <input type="submit" name="submit" value="Submit" class="btn btn-success wow fadeInUp" /> --}}
+                                <button class="btn btn-success" onclick="contact_us()">Submit</button>
                             </div>
                         </form>		
                     </div>

@@ -8,14 +8,14 @@ $( document ).ready(function() {
     $('.fastlinkButton').append("<button onclick='window.print()'' class='btn btn-sm btn-primary'>Print Document</button>&nbsp;<button class='btn btn-sm btn-primary' onclick='copy_url()'>Copy Link</button><p id='text-copy'></p>"); 
 
     $('.logos .col-6:first a').remove();
-    $('.logos .col-6:first').append('<div class="row"><div class="col-12"><span>Vehicle History Report</span><p id="date_report"></p></div></div>');
+    $('.logos .col-6:first').append('<div class="row"><div class="col-12"><span>Vehicle Data Record</span><p id="date_report"></p></div></div>');
     $('.rundate').css({"text-align": "left", "font-size": "13px", "padding-left": "0px", "font-weight": "bold"});
     $('.rundate').appendTo('#date_report');
 
-    $('.rightLogo').attr("src","{{asset('images/logo7.png')}}");
+    $('.rightLogo').attr("src","https://vehicledata3000.com/public/images/logo7.png");
     $('.rightLogo').css({"width" : "100px"});
 
-    $('.logo-title h1').html('Vehicle Summary Record');
+    $('.logo-title h1').html('Summary Vehicle Record');
     $('.logo-title').css({"text-align": "center", "margin-bottom" : "20px"});
     $('.data-art-container').remove();
     // $('.at-glance-text').first().html('YOUR VEHICLE SUMMARY');
@@ -51,7 +51,9 @@ $( document ).ready(function() {
 
     //replace all autocheck
     // fx('AutoCheck','AutoGetSummary')
-    $('footer').append("<br/><br/><br/><br/><center><b style='margin-top : 50px;'>Copyright © Auto Get Summary. All rights reserved</b></center>");
+    $('footer').append("<br/><br/><br/><br/><center><b style='margin-top : 50px;'>Copyright © Vehicle Data 3000. All rights reserved</b></center>");
+
+    fx('AutoCheck','VehicleData3000')
 });
 function copy_url(){
     var $temp = $("<input>");

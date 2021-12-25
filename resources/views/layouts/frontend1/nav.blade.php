@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand site-name" href="#top"><img src="{{asset('landing1/images/logo1.png')}}" alt="logo" style="width: 200px;"></a>
+                <a class="navbar-brand site-name" href="#top"><img src="{{asset('images/logo7.png')}}" alt="logo" style="width: 50px;"></a>
             </div>
 
             <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
@@ -21,7 +21,7 @@
                     <!-- <li><a href="#package">Pricing</a></li> -->
                     <li><a href="#testi">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="/login"><i class="fa fa-user-circle"></i> <?= Auth::check() ? Auth::user()->name : "Login" ?></a></li>
+                    {{-- <li><a href="/login"><i class="fa fa-user-circle"></i> <?= Auth::check() ? Auth::user()->name : "Login" ?></a></li> --}}
                 </ul>
             </div>
         </div>
