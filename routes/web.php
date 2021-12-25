@@ -17,11 +17,15 @@ Route::get('/', function () {
     return view('frontend.index1');
 });
 
-Route::get('/admin', function () {
-    return view('dashboard.dashboard.index1');
+// Route::get('/admin', function () {
+//     return view('dashboard.dashboard.index1');
+//     // return view('frontend.index1');
+// });
+/* admin */
+Route::get('/tempalte_email', function () {
+    return view('dashboard.payment.template_email');
     // return view('frontend.index1');
 });
-/* admin */
 
 
 Auth::routes();

@@ -387,7 +387,7 @@
                                 +2 (123) 456-7890
                             </li> -->
                             {{-- <li><i class="pe-7s-mail"></i><a href="mailto:info@yoursite.com">info@yoursite.com</a></li> --}}
-                            <li><i class="pe-7s-look"></i><a href="#">{{url('/')}}</a></li>
+                            <li><i class="pe-7s-look"></i><a href="{{url('/')}}">{{url('/')}}</a></li>
                         </ul>	
 
                     </div>
