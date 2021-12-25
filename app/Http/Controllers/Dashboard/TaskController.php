@@ -99,12 +99,14 @@ class TaskController extends Controller
                     $create_list = List_phone_number::create([
                         'phone' => $phone,
                         'car_name' => $data[$i][1],
+                        'price' => $data[$i][2],
                         'created_date' => date('Y-m-d H:i:s')
                     ]);
 
                     $create_task = List_task_phone::create([
                         'phone' => $phone,
                         'car_name' => $data[$i][1],
+                        'price' => $data[$i][2],
                         'created_date' => date('Y-m-d H:i:s')
                     ]);
                 }

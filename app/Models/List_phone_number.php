@@ -13,6 +13,6 @@ class List_phone_number extends Model
     protected $primaryKey = 'id';
     public $timestamps = false; 
 
-    protected $fillable = ['phone','car_name','created_date','updated_date'];
+    protected $fillable = ['phone','car_name','price','created_date','updated_date'];
 
 }
