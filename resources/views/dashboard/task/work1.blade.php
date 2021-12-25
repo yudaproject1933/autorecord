@@ -20,7 +20,12 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Filter</div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-6">Filter :</div>
+                        <div class="col-md-6"><p style="float: right;">{{date('Y-m-d H:i:s')}}</p></div>
+                    </div>
+                </div>
                 <div class="panel-body">
                     <form action="/task-phone-number" method="GET">
                         <div class="row">
