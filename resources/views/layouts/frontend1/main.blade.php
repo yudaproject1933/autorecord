@@ -6,6 +6,9 @@
         <title>Auto Summary</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Favicon-->
+        <link rel="icon" href="{{ asset('images/favicon/favicon.ico') }}" type="image/x-icon" >
+        <link rel="icon" href="{{ asset('images/favicon/favicon-16x16.png') }}" type="image/png">
 
         <!-- CSS Files -->
         <link href="{{asset('landing1/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
