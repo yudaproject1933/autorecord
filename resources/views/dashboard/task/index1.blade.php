@@ -111,7 +111,7 @@
                                     @else
                                         <td>{{$value['status_payment']}}</td>    
                                     @endif
-                                    <td>{{$value->user['name']}}</td>
+                                    <td>{{is_null($value->user['name']) ? '' : $value->user['name']}}</td>
                                 </tr>
                             <?php $no++; ?>
                             @endforeach
