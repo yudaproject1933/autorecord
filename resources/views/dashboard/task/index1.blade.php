@@ -89,6 +89,7 @@
                                     <th>No</th>
                                     <th>Phone</th>
                                     <th>Car Name</th>
+                                    <th>Price</th>
                                     <th>Status Payment</th>
                                     <th>Assign To</th>
                                 </tr>
@@ -101,6 +102,7 @@
                                     <td>{{$no}}</td>
                                     <td>{{$value['phone']}}</td>
                                     <td>{{$value['car_name']}}</td>
+                                    <td>{{$value['price']}}</td>
                                     @if ($value['status_payment'] == "checkout")
                                         <td style="background-color: orange; font-weight: bold;">{{$value['status_payment']}}</td>  
                                         <?php $checkout++; ?>      

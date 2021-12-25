@@ -1,4 +1,7 @@
-<title>Auto Generate Report</title>
+<title>Vehicle Data 3000</title>
+<!-- Favicon-->
+<link rel="icon" href="{{ asset('images/favicon/favicon.ico') }}" type="image/x-icon" >
+<link rel="icon" href="{{ asset('images/favicon/favicon-16x16.png') }}" type="image/png">
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

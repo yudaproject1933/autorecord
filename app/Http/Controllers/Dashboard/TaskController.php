@@ -78,7 +78,8 @@ class TaskController extends Controller
         }
 
         $user_id = Auth::user()->id;
-        $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'list_task_phone.phone')->where(['list_task_phone.id_employee' => $user_id])->orderBy('list_task_phone.created_date','DESC')->get();
+        $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'list_task_phone.phone')->where(['list_task_phone.id_employee' => $user_id]);
+        $model = $model->orderBy('list_task_phone.created_date','ASC')->get();
 
         $data['result_model'] = $model;
         $data['start_date'] = $start_date;
