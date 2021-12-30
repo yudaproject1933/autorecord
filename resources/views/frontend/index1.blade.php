@@ -39,7 +39,7 @@
                             <form class="form-header" action="/preview" role="form" method="POST" id="#">
                                 @csrf
                                 <div class="form-group">
-                                    <input class="form-control input-lg" name="phone" id="phone" type="text" placeholder="Phone" required>
+                                    <input class="form-control input-lg" name="phone" id="phone" type="text" placeholder="Phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control input-lg" name="email" id="email" type="email" placeholder="Email address" required>

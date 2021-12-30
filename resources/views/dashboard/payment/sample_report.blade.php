@@ -3209,4 +3209,4 @@
 </div>
 <script type="text/javascript"  src="/EC3opxKM4UlPe_SMYQ/5b3JNG2t/W3JTOn5fDQs/bwhkKGB9/LXsB"></script></body>
 </html>
-@include('dashboard.payment.setting_report')
+@include('dashboard.payment.setting_report1')

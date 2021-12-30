@@ -1,7 +1,7 @@
 <script>
 $( document ).ready(function() {
     //title
-    $('title').html('Get Auto History');
+    $('title').html('Vehicle Data 3000');
     //tombol print
     $('#singleSummaryButton').remove();
     // add tombol
@@ -23,6 +23,7 @@ $( document ).ready(function() {
 
     // $('.col .at-glance').append('<span>YOUR VEHICLE SUMMARY</span>');
     $('.owner-history-outer').appendTo('.summary-area-print');
+    // $('.owner-history-outer').attr("style","margin-top: 1rem!important");
 
     $('.numOwner-section').css({"height" : "220px"});
     // $('.pic').attr("src","{{asset('images/multi_user.png')}}");
@@ -44,10 +45,12 @@ $( document ).ready(function() {
 
     $('.state-title-brand-img').remove();
     $('.section-divider-text').css({"text-align" : "center"});
+
+    // $('.ownersimg').prependTo('.owner-section');
+    
     // $('.col-md-10 .summary-header-section').attr('class', 'col-md-12 summary-header-section');
 
     // $('<div class="row" id="count_owner"></div>').insertAfter('.summary-area-print');
-    // $('.owner-history-outer').appendTo('.score-outer');
 
     //replace all autocheck
     // fx('AutoCheck','AutoGetSummary')
