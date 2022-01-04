@@ -66,7 +66,6 @@
                     <table id="example" class="table display nowrap table-bordered display select" width="100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>No</th>
                                 <th>Phone</th>
                                 <th>Car Name</th>
@@ -78,7 +77,6 @@
                         <?php $no = 1; $checkout = 0; $pending = 0; $success = 0; $refund = 0;?>
                         @foreach ($result_model as $item => $value) 
                             <tr>
-                                <td>{{$value['id']}}</td>
                                 <td>{{$no}}</td>
                                 <td>{{$value['phone']}}</td>
                                 <td>{{$value['car_name']}}</td>
