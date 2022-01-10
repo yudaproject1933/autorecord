@@ -8,21 +8,23 @@
         $('.fastlinkButton').append("<button onclick='window.print()'' class='btn btn-sm btn-primary'>Print Document</button>&nbsp;<button class='btn btn-sm btn-primary' onclick='copy_url()'>Copy Link</button><p id='text-copy'></p>"); 
     
         // report run kiri atas
+        $('.logos').before('<div class="row"><div class="col-md-12"><img src="https://vehicledata3000.com/public/images/logo7.png" alt="AutoCheck logo" style="width: 100px; float: right;"></div></div>');
         $('.logos .col-6:first a').remove();
-        $('.logos .col-6:first').append('<div class="row"><div class="col-12"><span>Vehicle Data 3000</span><p id="date_report"></p></div></div>');
+        $('.logos .col-6:first').append('<div class="row"><div class="col-12"><span style="font-size: 20pt; font-weight: bold; color: #37b6ff;">Your VehicleData3000 History Report</span><p id="date_report"></p></div></div>');
         $('.rundate').css({"text-align": "left", "font-size": "13px", "padding-left": "0px", "font-weight": "bold"});
         $('.rundate').appendTo('#date_report');
     
-        $('.rightLogo').attr("src","https://vehicledata3000.com/public/images/logo7.png");
-        $('.rightLogo').css({"width" : "100px"});
+        // $('.rightLogo').attr("src","https://vehicledata3000.com/public/images/logo7.png");
+        // $('.rightLogo').css({"width" : "100px"});
+        $('.rightLogo').remove();
     
-        $('.logo-title h1').html('Summary Vehicle Record');
-        $('.logo-title').css({"text-align": "center", "margin-bottom" : "20px"});
+        $('.logo-title h1').html('A Glimpse Of Your Vehicle').css({"color" : "white"});
+        $('.logo-title').css({"text-align": "center", "margin-bottom" : "20px", "background-color" : "#37b6ff", "border-radius" : "25px"});
         $('.data-art-container').remove();
         $('.at-glance').first().remove();
     
         $('.owner-history-outer').appendTo('.summary-area-print');
-        $('.owner-history-outer').attr("style","margin-top: 1rem!important");
+        $('.owner-history-outer').attr("style","padding-top: 10px!important");
     
         $('.score-section').css({"height" : "220px"});
     
@@ -30,6 +32,7 @@
         $('.reportSection-tab').remove();
     
         $('.score-dial').remove();
+        // $('.score-dial').appendTo('.bbp-box');
     
         // $('.score-details').appendTo('.bbp-box');
         // $('.score-details').css({"padding" : "0px"});
@@ -45,6 +48,8 @@
         $('.state-title-brand-img').remove();
         // $('.section-divider-text').css({"text-align" : "center"});
     
+        $('.owner-history-outer').before('<div class="col-12 logo-title" style="text-align: center; background-color: rgb(55, 182, 255); border-radius: 25px; margin-top: 10px;"><h1 style="color: white;">Owner History</h1></div>');
+        
         $('.ownersimg').prependTo('.owner-section');
         $('.numOwner-section').remove();
     

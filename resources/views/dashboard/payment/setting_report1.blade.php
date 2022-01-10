@@ -84,7 +84,7 @@ $( document ).ready(function() {
     //replace all autocheck
     $('footer').append("<br/><br/><br/><br/><center><b style='margin-top : 50px;'>Copyright © Vehicle Data 3000. All rights reserved</b></center>");
 
-    // fx('AutoCheck','VehicleData3000');
+    fx('AutoCheck','VehicleData3000');
 });
 function copy_url(){
     var $temp = $("<input>");
