@@ -24,7 +24,7 @@ $( document ).ready(function() {
     $('.at-glance').first().remove();
 
     $('.owner-history-outer').appendTo('.summary-area-print');
-    $('.owner-history-outer').attr("style","padding-top: 10px!important");
+    $('.owner-history-outer').attr("style","padding-top: 10px!important; margin-top: 0px!important;");
 
     $('.score-section').css({"height" : "220px"});
 
