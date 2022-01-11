@@ -1,13 +1,18 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <div class="profile-sidebar">
         <div class="profile-userpic">
-            <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+            <img src="{{asset('landing1/images/test3.jpg')}}" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
             <div class="profile-usertitle-name"><?= Auth::check() ? Auth::user()->name : "Welcome" ?></div>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         </div>
         <div class="clear"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <center>{{date('Y-m-d H:i:s')}}</center>
+            </div>
+        </div>
     </div>
     <div class="divider"></div>
     <form role="search">

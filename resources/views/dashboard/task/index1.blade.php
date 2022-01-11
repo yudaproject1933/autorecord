@@ -23,7 +23,6 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">Filter :</div>
-                        <div class="col-md-6"><p style="float: right;">{{date('Y-m-d H:i:s')}}</p></div>
                     </div>
                 </div>
                 <div class="panel-body">
