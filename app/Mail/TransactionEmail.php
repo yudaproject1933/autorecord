@@ -37,6 +37,6 @@ class TransactionEmail extends Mailable
         return $this->from('cs.getautorecord@gmail.com')
             ->subject('Your Order is Complete')
             ->attachFromStorage('public/report/'.$this->details['vin'].'.pdf')
-            ->view('dashboard.payment.template_email');
+            ->view('dashboard.payment.email.template1');
     }
 }

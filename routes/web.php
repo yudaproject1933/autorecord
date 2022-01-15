@@ -23,7 +23,7 @@ Route::get('/', function () {
 // });
 /* admin */
 Route::get('/tempalte_email', function () {
-    return view('dashboard.payment.template_email');
+    return view('dashboard.payment.email.template1');
     // return view('frontend.index1');
 });
 
