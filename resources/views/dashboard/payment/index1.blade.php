@@ -97,7 +97,8 @@
                                 <td>{{$value['phone']}}</td>
                                 <td>{{$value['email']}}</td>
                                 <td>
-                                    <a href="{{$path}}" target="_blank">{{is_null($value['link']) ? '' : $path}}</a>
+                                    {{-- <a href="{{$path}}" target="_blank">{{is_null($value['link']) ? '' : $path}}</a> --}}
+                                    <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : url('/')."/storage/app/".$value['link']}}</a>
                                 </td>
                                 <td>{{$value['status_payment']}}</td>
                             </tr>

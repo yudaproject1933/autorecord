@@ -52,6 +52,8 @@
                                 </div> --}}
                                 <div class="form-group last">
                                     <button class="btn btn-warning btn-block btn-lg" onclick="transaction()">Check Vin</button>
+
+                                    {{-- <button class="btn btn-warning btn-block btn-lg" onclick="swal()">swal</button> --}}
                                 </div>
                                 <p class="privacy text-center">We will not share your email. Read our <a href="">privacy policy</a>.</p>
                                 <p></p>
@@ -128,6 +130,20 @@
                 }
             });
         }
+    }
+
+    function swal(){
+        Swal.fire({
+            title: '<strong>Success!!</strong>',
+            icon: 'success',
+            html: "<div style='text-align: justify; font-size: 12pt;'><p>Thanks for your order! We will process your order by sending the report to your <b>E-MAIL</b>. It will takes 10-30  minutes or less for the email arrives.</p><p>If your report still hasn't arrived in your email , please contact us by email <b>cs.vehicledata3000@gmail.com</b> </p><p>Make sure that:</p><span>- You have entered the correct email when ordering</span><br/><span>- Your email have a storage space for receive the report</span></div>",
+            showCloseButton: true,
+            showCancelButton: false,
+            focusConfirm: false,
+            confirmButtonText: '<a href="/" class="btn"><i class="fa fa-thumbs-up"></i> Great!</a>',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            customClass: "swal-wide"
+        }); 
     }
 </script>
 @endsection

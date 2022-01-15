@@ -17,7 +17,7 @@
                     </center>
                     
                     <div class="card-body">
-                        <h3 class="card-title" style="text-align: center;"><b>Order has benn completed</b></h3>
+                        <h3 class="card-title" style="text-align: center;"><b>Order has been completed</b></h3>
                         <h4>List Order :</h4>
                         <table class="table" style="width: 50%" border="1">
                             <thead>
