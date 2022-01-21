@@ -81,6 +81,7 @@
                                 <th>Email</th>
                                 <th>Link</th>
                                 <th>Status</th>
+                                <th>Create Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -101,6 +102,7 @@
                                     <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : url('/')."/storage/app/".$value['link']}}</a>
                                 </td>
                                 <td>{{$value['status_payment']}}</td>
+                                <td>{{$value['created_date']}}</td>
                             </tr>
                         @endforeach
                         </tbody>

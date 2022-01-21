@@ -190,7 +190,8 @@ class CheckoutController extends Controller
 
             if ($model) {
                 $model->update([
-                    'status_payment' => $request->status_payment 
+                    'status_payment' => $request->status_payment,
+                    'updated_date' => date('Y-m-d H:i:s')
                 ]);
             }
             
