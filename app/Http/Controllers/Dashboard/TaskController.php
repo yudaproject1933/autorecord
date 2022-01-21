@@ -52,7 +52,7 @@ class TaskController extends Controller
 
         $data['result_model'] = $model;
         $data['start_date'] = $start_date;
-        $data['enda_date'] = $enda_date;
+        $data['end_date'] = $end_date;
         $data['list_employee'] = $model_employee;
         $data['limit'] = $limit;
         $data['offset'] = $offset;
