@@ -51,11 +51,14 @@
                                     <input class="form-control input-lg" name="millage" id="millage" type="text" placeholder="Millage" required>
                                 </div> --}}
                                 <div class="form-group last">
-                                    <button class="btn btn-warning btn-block btn-lg" onclick="transaction()">Check Vin</button>
+                                    <button class="btn btn-warning btn-block btn-lg" onclick="transaction()"><i class="fa fa-search"></i> LOOKUP VIN NOW</button>
 
                                     {{-- <button class="btn btn-warning btn-block btn-lg" onclick="swal()">swal</button> --}}
                                 </div>
-                                <p class="privacy text-center">We will not share your email. Read our <a href="">privacy policy</a>.</p>
+                                <center>
+                                    <img src="{{asset('landing1/images/nmvtis.svg')}}" alt="" style="width: 100px;">
+                                </center>
+                                <p class="privacy text-center">We will not share your email. Read our <a href="/members/terms-do">privacy policy</a>.</p>
                                 <p></p>
                             </form>
                         </div>				

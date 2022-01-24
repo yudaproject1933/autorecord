@@ -105,7 +105,7 @@
                                     <script src="{{asset('landing1/js/jquery.js')}}"></script>
                                     @include('paypal.riyant')
 
-                                    <span>By continuing to PayPal, you agree to our <a href="#" style="text-decoration: underline;">Terms of Service.</a></span>
+                                    <span>By continuing to PayPal, you agree to our <a href="/members/terms-do" style="text-decoration: underline;" target="_blank">Terms of Service.</a></span>
                                 </div>
                             </div>
                         </div>
