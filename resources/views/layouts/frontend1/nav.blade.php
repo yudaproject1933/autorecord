@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand site-name" href="#top"><img src="{{asset('images/logo7.png')}}" alt="logo" style="width: 50px;"></a>
+                <a class="navbar-brand site-name" href="#top"><img src="{{asset('images/logo7.png')}}" alt="logo" style="width: 40px;"></a>
             </div>
 
             <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">

@@ -48,7 +48,7 @@ $( document ).ready(function() {
     $('.state-title-brand-img').remove();
     // $('.section-divider-text').css({"text-align" : "center"});
 
-    $('.owner-history-outer').before('<div class="col-12 logo-title" style="text-align: center; background-color: rgb(55, 182, 255); border-radius: 25px; margin-top: 10px;"><h1 style="color: white;">Owner History</h1></div>');
+    $('.owner-history-outer').before('<div class="col-12 logo-title" style="text-align: center; background-color: rgb(55, 182, 255); border-radius: 25px; margin-top: 30px;"><h1 style="color: white;">Owner History</h1></div>');
     
     $('.ownersimg').prependTo('.owner-section');
     $('.numOwner-section').remove();
@@ -81,6 +81,10 @@ $( document ).ready(function() {
     $('.at-glance').eq(0).attr("style", "background-color: #3eb0f7;  border-radius: 15px;");
 
     $('.at-glance').eq(1).attr("style", "background-color: #3eb0f7;  border-radius: 15px;");
+
+    $('.full-report__terms p:eq(0) a').attr('href','https://vehicledata3000.com/members/terms-do');
+    $('.full-report__terms p:eq(1) a').attr('href','https://vehicledata3000.com/members/buyback');
+
     //replace all autocheck
     $('footer').append("<br/><br/><br/><br/><center><b style='margin-top : 50px;'>Copyright © Vehicle Data 3000. All rights reserved</b></center>");
 

@@ -131,7 +131,7 @@
 
             <!-- /.feature image -->
             <div class="col-md-3 feature-2-pic wow fadeInRight">
-                <img src="{{asset('landing1/images/images1.png')}}" alt="macbook" class="img-responsive" style="height: 400px;;">
+                <img src="{{asset('landing1/images/report.png')}}" alt="macbook" class="img-responsive" style="height: 400px; -webkit-filter: drop-shadow(5px 5px 5px #222); border-radius: 15px;">
             </div>				  
         </div>			  
 
@@ -152,7 +152,7 @@
 
                     <!-- /.download button -->
                     <div class="download-cta wow fadeInLeft">
-                        <button href="#contact" class="btn-secondary">Download Sample</button>
+                        <button href="#contact" class="btn-secondary">Download</button>
                     </div>
                 </div>	
             </div>	

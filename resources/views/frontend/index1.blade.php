@@ -3,7 +3,7 @@
     <!-- /.parallax full screen background image -->
     <div class="fullscreen landing parallax" style="background-image:url({{asset('landing1/images/slider-3.jpg')}})" data-img-width="2000" data-img-height="1333" data-diff="100">
 
-        <div class="overlay">
+        <div class="overlay" id="top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">

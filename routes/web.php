@@ -41,10 +41,13 @@ Route::get('/preview_report', 'App\Http\Controllers\Dashboard\PaymentController@
 //contact us
 Route::post('/checkout/contact_us', 'App\Http\Controllers\Checkout\CheckoutController@contact_us');
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-/* landingpage  */
+Route::get('/members/terms-do', function () {
+    return view('frontend.terms_do');
+});
+
+Route::get('/members/buyback', function () {
+    return view('frontend.buyback');
+});
 
 /* dashboard user || admin */
 Route::group(['middleware' => 'auth'], function() {
