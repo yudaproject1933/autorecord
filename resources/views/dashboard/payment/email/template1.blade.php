@@ -330,7 +330,7 @@ a {
                                     <tr>
                                         <td style="font-size: 10pt;">
                                             {{-- <a href="{{url('/')}}">View in browser</a> --}}
-                                            <span>Hello, your order in VehicleData300 has been complated.</span><br> 
+                                            <span>Hello, your order in VehicleData3000 has been complated.</span><br> 
                                             <small>We have sent your report to your email, please check your spam folder in case the email is sent there instead of your inbox.</small>
                                             <small>We also attach your report here</small><br>
                                             <small>If you have any questions you can send a message to cs.vehicledata3000@gmail.com</small>
