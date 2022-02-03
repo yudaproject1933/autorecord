@@ -34,7 +34,7 @@
                 style: {
                 shape: 'pill',
                 color: 'gold',
-                layout: 'horizontal',
+                layout: 'vertical',
                 label: 'checkout',
                 
                 },
