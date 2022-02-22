@@ -209,6 +209,10 @@
                         <input type="file" name="file_list_number" class="form-control" required>
                     </div>
                     <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Date:</label>
+                        <input type="date" class="form-control" id="date_upload" name="date_upload" value="{{ isset($start_date) ? $start_date : '' }}">
+                    </div>
+                    <div class="mb-3">
                         Catatan :
                         <ul>
                             <li>Data berupa file excel</li>

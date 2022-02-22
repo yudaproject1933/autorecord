@@ -89,9 +89,9 @@
                         @php $path = Storage::url($value['link']); @endphp
                             <tr>
                                 <td>
-                                    <button class="btn btn-sm btn-danger" title="Generate" onclick="generate({{ $value->id }})"><i class="fa fa-file-code-o"></i></button>
+                                    <a class="btn btn-sm btn-warning" title="Download Docs" href="https://www.autotrader.com/cars-for-sale/experian?SID=ATCbI8RQrUb0njwc6r&VIN={{$value->vin}}&brand=atc&ps=true" target="_blank"><i class="fa fa fa-file-pdf-o"></i></a>
+                                    <button class="btn btn-sm btn-danger" title="Generate" onclick="generate({{ $value->id }})"><i class="fa fa-file-code-o"></i></button>&nbsp;
                                     {{-- <button class="btn btn-sm btn-warning" title="Get File"><i class="fa fa-file-alt"></i></button> --}}
-                                    <a class="btn btn-sm btn-warning" title="Download Docs" href="https://www.autotrader.com/cars-for-sale/experian?SID=ATCbI8RQrUb0njwc6r&VIN={{$value->vin}}&brand=atc&ps=true" target="_blank"><i class="fa fa fa-file-pdf-o"></i></a>&nbsp;
                                     <button class="btn btn-sm btn-primary" title="Send Email" onclick="SendEmail({{$value->id}})"><i class="fa fa-paper-plane"></i></button>
                                 </td>
                                 <td>{{$value['vin']}}</td>

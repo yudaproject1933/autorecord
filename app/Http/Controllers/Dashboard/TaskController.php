@@ -90,6 +90,7 @@ class TaskController extends Controller
 
     public function upload_list_phone_number(Request $request)
     {
+        $date_upload = $request->date_upload;
         $rows = Excel::toArray(new List_phone_number, $request->file('file_list_number'));
         $data = $rows[0];
         if (count($data) > 0) {
@@ -102,7 +103,7 @@ class TaskController extends Controller
                         'phone' => $phone,
                         'car_name' => $data[$i][1],
                         'price' => isset($data[$i][2]) ? $data[$i][2] : '',
-                        'created_date' => date('Y-m-d H:i:s')
+                        'created_date' => $date_upload
                     ]);
 
                     $create_task = List_task_phone::create([
@@ -110,7 +111,7 @@ class TaskController extends Controller
                         'car_name' => $data[$i][1],
                         'price' => isset($data[$i][2]) ? $data[$i][2] : '',
                         'id_employee' => Auth::user()->id,
-                        'created_date' => date('Y-m-d H:i:s')
+                        'created_date' => $date_upload
                     ]);
                 }
             }
