@@ -42,7 +42,7 @@ class TaskController extends Controller
             $model = $model->whereDate('list_task_phone.created_date', '<=', $end_date);
         }
         if ($employee !== '') {
-            $model = $model->whereDate('list_task_phone.id_employee', $employee);
+            $model = $model->where('list_task_phone.id_employee', $employee);
         }
 
         $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'list_task_phone.phone');
