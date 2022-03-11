@@ -60,6 +60,20 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-12 col-form-label">Employee : </label>
+                                    <div class="col-sm-12">
+                                        <select name="employee" id="employee" class="form-control">
+                                            <option value="">--Pilih--</option>
+                                        @foreach ($list_employee as $item => $value)
+                                            <option value="{{$value['id']}}" {{ isset($employee) && $employee == $value['id'] ? 'selected' : '' }}>{{$value['name']}}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             
                             <div class="col-md-12" style="margin-top: 20px;">
                                 <div class="form-group">

@@ -26,16 +26,17 @@
         <li class="menu-data-phone"><a href="/task"><em class="fa fa-database">&nbsp;</em> Data Phone</a></li>
         <li class="menu-task"><a href="/task-phone-number"><em class="fa fa-tasks">&nbsp;</em> Task</a></li>
         <li class="menu-report"><a href="/report"><em class="fa fa-file">&nbsp;</em> Report</a></li>
-        <li class="menu-contact"><a href="panels.html"><em class="fa fa-phone">&nbsp;</em> Contacu Us</a></li>
-        {{-- <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-            <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+        {{-- <li class="menu-contact"><a href="panels.html"><em class="fa fa-phone">&nbsp;</em> Contacu Us</a></li> --}}
+        <li class="menu-user"><a href="/user"><em class="fa fa-user">&nbsp;</em> User Management</a></li>
+        {{-- <li class="parent active"><a data-toggle="collapse" href="#sub-item-1">
+            <em class="fa fa-file">&nbsp;</em> Report <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-1">
-                <li><a class="" href="#">
-                    <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 1
+                <li class=""><a class="" href="#">
+                    <span class="fa fa-arrow-right">&nbsp;</span> <?= Auth::check() ? Auth::user()->name : "Welcome" ?>
                 </a></li>
                 <li><a class="" href="#">
-                    <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 2
+                    <span class="fa fa-arrow-right">&nbsp;</span> Employee
                 </a></li>
                 <li><a class="" href="#">
                     <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3

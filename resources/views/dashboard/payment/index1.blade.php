@@ -1,5 +1,12 @@
 @extends('layouts.backend.main1')
 @section('content')
+@php
+$display = '';
+    if (Auth::user()->role != 'admin') {
+        $display = "style='display:none' ";
+    }    
+@endphp
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <ol class="breadcrumb">
@@ -79,6 +86,8 @@
                                 <th>Vin</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th>Car Name</th>
+                                <th {{$display}}>Employee</th>
                                 <th>Link</th>
                                 <th>Status</th>
                                 <th>Create Date</th>
@@ -97,9 +106,12 @@
                                 <td>{{$value['vin']}}</td>
                                 <td>{{$value['phone']}}</td>
                                 <td>{{$value['email']}}</td>
+                                <td>{{$value['car_name']}}</td>
+                                <td {{$display}}>{{$value['name']}}</td>
                                 <td>
                                     {{-- <a href="{{$path}}" target="_blank">{{is_null($value['link']) ? '' : $path}}</a> --}}
-                                    <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : url('/')."/storage/app/".$value['link']}}</a>
+                                    {{-- <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : url('/')."/storage/app/".$value['link']}}</a> --}}
+                                    <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : 'See Report'}}</a>
                                 </td>
                                 <td>{{$value['status_payment']}}</td>
                                 <td>{{$value['created_date']}}</td>

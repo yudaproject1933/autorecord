@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Checkout;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Transaction;
+use App\Models\List_task_phone;
 use Auth;
 
 use Illuminate\Support\Facades\Mail;
@@ -178,9 +180,9 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         $phone = $this->clean_str($request->phone);
+        // dd($request->car_name);
 
-
-        if ($request->status_payment == "pending") {
+        if ($request->status_payment == "pending") {    //sudah bayar
             $model = Transaction::where([
                 'vin' => $request->vin,
                 'phone' => $phone,
@@ -195,7 +197,16 @@ class CheckoutController extends Controller
                 ]);
             }
             
-        }else{
+        }else{      //hanya checkout
+
+            $id_user = null;
+            $get_id_user = List_task_phone::where(['phone' => $phone])->first();
+            if ($get_id_user) {
+                $id_user = $get_id_user->id_employee;
+            }
+
+            // dd($id_user);
+
             $model = Transaction::where([
                 'vin' => $request->vin,
                 'phone' => $phone,
@@ -206,9 +217,11 @@ class CheckoutController extends Controller
             if (!$model) {
                 $transaction = Transaction::create([
                     'vin' => strtoupper($request->vin),
+                    'car_name' => $request->car_name,
                     'phone' => $phone,
                     'email' => $request->email,
                     'status_payment' => $request->status_payment,
+                    'id_user' => $id_user,
                     'created_date' => date('Y-m-d H:i:s')
                 ]);
             }

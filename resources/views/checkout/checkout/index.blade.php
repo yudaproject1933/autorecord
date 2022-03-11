@@ -167,7 +167,8 @@
                 vin : vin,
                 phone : phone,
                 email :email,
-                status_payment : "checkout"
+                status_payment : "checkout",
+                car_name : "<?=$vehicle?>"
             };
             $.ajax({
                 headers: {

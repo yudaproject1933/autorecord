@@ -28,6 +28,8 @@ class TaskController extends Controller
         $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
         $limit = isset($_GET['limit']) ? $_GET['limit'] : '';
         $offset = isset($_GET['offset']) ? $_GET['offset'] : '';
+        $employee = isset($_GET['employee']) ? $_GET['employee'] : '';
+
 
         $model = List_task_phone::select('list_task_phone.*', 'transaction.status_payment');
         if ($start_date !== '' && $end_date === '') {
@@ -38,6 +40,9 @@ class TaskController extends Controller
         }
         if ($end_date !== '') {
             $model = $model->whereDate('list_task_phone.created_date', '<=', $end_date);
+        }
+        if ($employee !== '') {
+            $model = $model->whereDate('list_task_phone.id_employee', $employee);
         }
 
         $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'list_task_phone.phone');
@@ -56,6 +61,7 @@ class TaskController extends Controller
         $data['list_employee'] = $model_employee;
         $data['limit'] = $limit;
         $data['offset'] = $offset;
+        $data['employee'] = $employee;
 
         return view('dashboard.task.index1', $data);
     }

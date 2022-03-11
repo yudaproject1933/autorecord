@@ -39,7 +39,7 @@ class PaymentController extends Controller
         $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : $tgl_end;
         $status_payment = isset($_GET['status_payment']) ? $_GET['status_payment'] : '';
 
-        $model = Transaction::select('*');
+        $model = Transaction::select('transaction.*', 'users.name');
         if ($start_date !== '' && $end_date === '') {
             $model = $model->whereDate('created_date', '=', $start_date);
         }
@@ -55,7 +55,10 @@ class PaymentController extends Controller
             $model = $model->where('status_payment','!=',"checkout");
         }
 
-        $model = $model->orderBy('created_date','DESC')->get();
+        $model = $model->leftJoin('users', 'transaction.id_user', '=', 'users.id');
+
+        $model = $model->orderBy('updated_date','DESC')->get();
+        // $model = $model->orderBy(['created_date' => 'DESC', 'updated_date' => 'DESC'])->get();
 
         $data['result_model'] = $model;
         $data['start_date'] = $start_date;

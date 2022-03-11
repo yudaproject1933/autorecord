@@ -67,8 +67,11 @@ Route::group(['middleware' => 'auth'], function() {
     
     
     Route::resource('/report', 'App\Http\Controllers\Dashboard\ReportController');
+    Route::get('/generate_report', 'App\Http\Controllers\Dashboard\ReportController@generate_report');
 
     Route::resource('/task', 'App\Http\Controllers\Dashboard\TaskController');
     Route::get('/task-phone-number', 'App\Http\Controllers\Dashboard\TaskController@task_phone_number');
     Route::post('/upload-list-phone-number', 'App\Http\Controllers\Dashboard\TaskController@upload_list_phone_number');
+
+    Route::resource('/user', 'App\Http\Controllers\Dashboard\UserController');
 });
