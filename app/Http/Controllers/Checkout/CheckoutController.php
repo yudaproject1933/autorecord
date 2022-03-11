@@ -113,9 +113,17 @@ class CheckoutController extends Controller
         date_default_timezone_set("America/Los_Angeles");
 
         $phone = $this->clean_str($request->phone);
-        $status_payment = "checkout";
-        $id_user = Auth::check() ? Auth::user()->id : null;
 
+        $data = $this->transaction('POST'); //call function transaction
+        $car_name = $data['vehicle'];
+
+        $id_user = null;
+        $get_id_user = List_task_phone::where(['phone' => $phone])->first();
+        if ($get_id_user) {
+            $id_user = $get_id_user->id_employee;
+        }
+
+        $status_payment = "checkout";
         $model = Transaction::where([
             'vin' => $request->vin,
             'phone' => $phone,
@@ -126,6 +134,7 @@ class CheckoutController extends Controller
         if (!$model) {
             $transaction = Transaction::create([
                 'vin' => strtoupper($request->vin),
+                'car_name' => $car_name,
                 'phone' => $phone,
                 'email' => $request->email,
                 'status_payment' => $status_payment,
@@ -134,7 +143,7 @@ class CheckoutController extends Controller
             ]);
         }
 
-        $data = $this->transaction('POST');
+        
         return view('checkout.checkout.index', $data);
         // dd($data);
     }
