@@ -83,13 +83,13 @@ $display = '';
                     <table id="example" class="table display nowrap table-striped table-bordered" width="100%">
                         <thead>
                             <tr>
-                                <th>Action</th>
+                                <th <?=$display?> >Action</th>
                                 <th>Vin</th>
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Car Name</th>
-                                <th <?=$display?>>Employee</th>
-                                <th>Link</th>
+                                <th <?=$display?> >Employee</th>
+                                <th <?=$display?> >Link</th>
                                 <th>Status</th>
                                 <th>Create Date</th>
                             </tr>
@@ -98,18 +98,22 @@ $display = '';
                         @foreach ($result_model as $item => $value)
                         @php $path = Storage::url($value['link']); @endphp
                             <tr>
-                                <td>
+                                <td <?=$display?> >
                                     <a class="btn btn-sm btn-warning" title="Download Docs" href="https://www.autotrader.com/cars-for-sale/experian?SID=ATCbI8RQrUb0njwc6r&VIN={{$value->vin}}&brand=atc&ps=true" target="_blank"><i class="fa fa fa-file-pdf-o"></i></a>
                                     <button class="btn btn-sm btn-danger" title="Generate" onclick="generate({{ $value->id }})"><i class="fa fa-file-code-o"></i></button>&nbsp;
                                     {{-- <button class="btn btn-sm btn-warning" title="Get File"><i class="fa fa-file-alt"></i></button> --}}
                                     <button class="btn btn-sm btn-primary" title="Send Email" onclick="SendEmail({{$value->id}})"><i class="fa fa-paper-plane"></i></button>
                                 </td>
-                                <td>{{$value['vin']}}</td>
+                                @if ($value['status_payment'] == "pending")
+                                    <td style="background-color: yellow; font-weight: bold;">{{$value['vin']}}</td>
+                                @else
+                                    <td>{{$value['vin']}}</td>
+                                @endif
                                 <td>{{$value['phone']}}</td>
                                 <td>{{$value['email']}}</td>
                                 <td>{{$value['car_name']}}</td>
                                 <td <?=$display?>>{{$value['name']}}</td>
-                                <td>
+                                <td <?=$display?> >
                                     {{-- <a href="{{$path}}" target="_blank">{{is_null($value['link']) ? '' : $path}}</a> --}}
                                     {{-- <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : url('/')."/storage/app/".$value['link']}}</a> --}}
                                     <a href="{{url('/')."/storage/app/".$value['link']}}" target="_blank">{{is_null($value['link']) ? '' : 'See Report'}}</a>
