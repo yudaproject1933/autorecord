@@ -42,7 +42,7 @@
                                 <td>{{$value['name']}}</td>
                                 <td>{{$value['email']}}</td>
                                 <td>{{$value['role']}}</td>
-                                <td>{{$value['salary']}}</td>
+                                <td>Rp. {{number_format($value['salary'])}}</td>
                                 <td>{{$value['created_at']}}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning" title="Reset Password"  disabled><i class="fa fa-pencil"></i></button>

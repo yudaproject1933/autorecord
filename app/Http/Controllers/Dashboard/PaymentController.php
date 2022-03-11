@@ -24,6 +24,10 @@ class PaymentController extends Controller
     {
         $data['menu_active'] = "transaction";
 
+        $id_user = Auth::user()->id;
+        $role = Auth::user()->role;
+        // dd($id_user);
+
         $tgl_now = '';
         $tgl_end = '';
 
@@ -57,6 +61,9 @@ class PaymentController extends Controller
 
         $model = $model->leftJoin('users', 'transaction.id_user', '=', 'users.id');
 
+        if ($role == 'employee') {
+            $model = $model->where('id_user',$id_user);
+        }
         $model = $model->orderBy('updated_date','DESC')->orderBy('created_date','DESC')->get();
         // $model = $model->orderBy(['created_date' => 'DESC', 'updated_date' => 'DESC'])->get();
 

@@ -17,8 +17,15 @@ class DashboradController extends Controller
     public function index()
     {
         // dd(Auth::check());
-        $data['menu_active'] = "dashboard";
+        $role = Auth::user()->role;
+
+        if ($role == 'user') {
+            return redirect('/');
+        }else{
+            $data['menu_active'] = "dashboard";
         return view('dashboard.dashboard.index1', $data);
+        }
+        
     }
 
     /**
