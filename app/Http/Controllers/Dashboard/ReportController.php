@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\User;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ReportExport;
+
+
 class ReportController extends Controller
 {
     /**
@@ -67,11 +71,27 @@ class ReportController extends Controller
         $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
         $employee = isset($_GET['employee']) ? $_GET['employee'] : '';
 
-        //mengambil data dan tampilan dari halaman laporan_pdf
-        //data di bawah ini bisa kalian ganti nantinya dengan data dari database
-        $data = PDF::loadview('dashboard.report.report_pdf', ['data' => 'ini adalah contoh laporan PDF']);
-        //mendownload laporan.pdf
-    	return $data->download('laporan.pdf');
+        // dd('masuk');
+        // return Excel::download(new ReportExport, 'Data_user.xlsx');
+        // return (new ReportExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+
+        $data = User::get()->toArray();
+        // return Excel::store('new ReportExport', function($excel) use ($data) {
+        //     $excel->sheet('mySheet', function($sheet) use ($data)
+        //     {
+        //         $sheet->cell('A1', function($cell) {$cell->setValue('First Name');   });
+        //         $sheet->cell('B1', function($cell) {$cell->setValue('Last Name');   });
+        //         $sheet->cell('C1', function($cell) {$cell->setValue('Email');   });
+        //         if (!empty($data)) {
+        //             foreach ($data as $key => $value) {
+        //                 $i= $key+2;
+        //                 $sheet->cell('A'.$i, $value['firstname']); 
+        //                 $sheet->cell('B'.$i, $value['lastname']); 
+        //                 $sheet->cell('C'.$i, $value['email']); 
+        //             }
+        //         }
+        //     });
+        // });
     }
 
 

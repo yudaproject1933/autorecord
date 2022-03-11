@@ -15,6 +15,8 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Exports\\List_phone_numberExport' => $baseDir . '/app/Exports/List_phone_numberExport.php',
+    'App\\Exports\\Report' => $baseDir . '/app/Exports/Report.php',
+    'App\\Exports\\ReportExport' => $baseDir . '/app/Exports/ReportExport.php',
     'App\\Exports\\TransactionExport' => $baseDir . '/app/Exports/TransactionExport.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

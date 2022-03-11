@@ -29,6 +29,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Gaji Pokok</th>
                                 <th>Create Date</th>
                                 <th>Action</th>
                             </tr>
@@ -41,6 +42,7 @@
                                 <td>{{$value['name']}}</td>
                                 <td>{{$value['email']}}</td>
                                 <td>{{$value['role']}}</td>
+                                <td>{{$value['salary']}}</td>
                                 <td>{{$value['created_at']}}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning" title="Reset Password"  disabled><i class="fa fa-pencil"></i></button>

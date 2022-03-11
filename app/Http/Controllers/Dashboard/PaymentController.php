@@ -57,7 +57,7 @@ class PaymentController extends Controller
 
         $model = $model->leftJoin('users', 'transaction.id_user', '=', 'users.id');
 
-        $model = $model->orderBy('updated_date','DESC')->get();
+        $model = $model->orderBy('updated_date','DESC')->orderBy('created_date','DESC')->get();
         // $model = $model->orderBy(['created_date' => 'DESC', 'updated_date' => 'DESC'])->get();
 
         $data['result_model'] = $model;

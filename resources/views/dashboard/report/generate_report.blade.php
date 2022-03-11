@@ -11,7 +11,16 @@
 </head>
 <body>
     
-
+    <h1>test</h1>
+    <table>
+        <thead>
+            <tr>
+                @for ($i = 1; $i < date('t'); $i++)
+                    <th>{{$i}}</th>
+                @endfor
+            </tr>
+        </thead>
+    </table>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="{{asset('backend/asset/js/bootstrap.min.js')}}"></script>

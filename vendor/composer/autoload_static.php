@@ -652,6 +652,8 @@ class ComposerStaticInitbb7dcbbd4a218a35ddac13bd6f1f6f0a
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\List_phone_numberExport' => __DIR__ . '/../..' . '/app/Exports/List_phone_numberExport.php',
+        'App\\Exports\\Report' => __DIR__ . '/../..' . '/app/Exports/Report.php',
+        'App\\Exports\\ReportExport' => __DIR__ . '/../..' . '/app/Exports/ReportExport.php',
         'App\\Exports\\TransactionExport' => __DIR__ . '/../..' . '/app/Exports/TransactionExport.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
