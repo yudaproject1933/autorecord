@@ -96,13 +96,16 @@ $display = '';
                         </thead>
                         <tbody>
                         @foreach ($result_model as $item => $value)
-                        @php $path = Storage::url($value['link']); @endphp
+                        @php 
+                            $path = Storage::url($value['link']); 
+                            $email = isset($value['link']) && $value['link'] != NULL ? '' : 'style="display: none;"';
+                        @endphp
                             <tr>
                                 <td <?=$display?> >
                                     <a class="btn btn-sm btn-warning" title="Download Docs" href="https://www.autotrader.com/cars-for-sale/experian?SID=ATCbI8RQrUb0njwc6r&VIN={{$value->vin}}&brand=atc&ps=true" target="_blank"><i class="fa fa fa-file-pdf-o"></i></a>
                                     <button class="btn btn-sm btn-danger" title="Generate" onclick="generate({{ $value->id }})"><i class="fa fa-file-code-o"></i></button>&nbsp;
                                     {{-- <button class="btn btn-sm btn-warning" title="Get File"><i class="fa fa-file-alt"></i></button> --}}
-                                    <button class="btn btn-sm btn-primary" title="Send Email" onclick="SendEmail({{$value->id}})"><i class="fa fa-paper-plane"></i></button>
+                                    <button <?=$email?> class="btn btn-sm btn-primary" title="Send Email" onclick="SendEmail({{$value->id}})"><i class="fa fa-paper-plane"></i></button>
                                 </td>
                                 @if ($value['status_payment'] == "pending")
                                     <td style="background-color: yellow; font-weight: bold;">{{$value['vin']}}</td>

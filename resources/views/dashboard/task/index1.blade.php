@@ -80,6 +80,7 @@
                                     <div class="col-sm-12">
                                         <button class="btn btn-warning"><i class="fa fa-search"></i> Filter</button>
                                         <button style="float: right;" class="btn btn-primary" onclick="upload_number(); return false;"><i class="fa fa-upload"></i> Upload List</button>
+                                        {{-- <button style="float: right; margin-right: 10px;" class="btn btn-success" onclick="download_number(); return false;"><i class="fa fa-download"></i> Download List</button> --}}
                                     </div>
                                 </div>
                             </div> 

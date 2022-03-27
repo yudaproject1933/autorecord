@@ -80,8 +80,8 @@
                             <tr>
                                 <th>NO</th>
                                 <th>VIN</th>
-                                <th>PHONE</th>
-                                <th>CAR NAME</th>
+                                <th>Phone</th>
+                                <th>Car Name</th>
                                 <th>Email</th>
                                 <th>Status Payment</th>
                                 <th>Checkout</th>
@@ -94,7 +94,7 @@
                                 <td>{{$no}}</td>
                                 <td>{{$value['vin']}}</td>
                                 <td>{{$value['phone']}}</td>
-                                <td>{{$value['email']}}</td>
+                                <td>{{$value['car_name']}}</td>
                                 <td>{{$value['email']}}</td>
                                 @if ($value['status_payment'] == "checkout")
                                     <td style="background-color: orange; font-weight: bold;">{{$value['status_payment']}}</td>  
