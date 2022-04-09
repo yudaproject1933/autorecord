@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-12" style="margin-top: 40px;">
+                        {{-- <div class="col-md-12" style="margin-top: 40px;">
                             <div class="col-md-4">
                                 <img src="{{asset('images/refund-money.png')}}" alt="" style="width: 100%; height: 150px;">
                                 <span>100% Save Your Money More</span>
@@ -53,7 +53,7 @@
                                 <img src="{{asset('images/money-back.jpg')}}" alt="" style="width: 100%; height: 150px;">
                                 <span>100% Safe and Secure</span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-md-6">

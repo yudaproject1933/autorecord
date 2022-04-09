@@ -45,7 +45,7 @@
                                     <input class="form-control input-lg" name="email" id="email" type="email" placeholder="Email address" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control input-lg" name="vin" id="vin" type="text" placeholder="VIN" maxlength="17" minlength="17" required style="text-transform:uppercase">
+                                    <input class="form-control input-lg" name="vin" id="vin" type="text" placeholder="VIN" required style="text-transform:uppercase" maxlength="17" minlength="17" pattern="[A-Za-z0-9]+" onkeydown="if(['Space'].includes(arguments[0].code)){return false;}">
                                 </div>
                                 {{-- <div class="form-group">
                                     <input class="form-control input-lg" name="millage" id="millage" type="text" placeholder="Millage" required>
@@ -78,6 +78,19 @@
 @section('js')
 
 <script>
+    $(document).ready(function() {
+        // $("#vin").on({
+        //     keydown: function(e) {
+        //         if (e.which === 32)
+        //         return false;
+        //     },
+        //     change: function() {
+        //         this.value = this.value.replace(/\s/g, "");
+        //     }
+        // });
+        // $("#vin").attr('maxlength','6');
+    });
+    
     function transaction()
     {
         var vin = $('#vin').val();
