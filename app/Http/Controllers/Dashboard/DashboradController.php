@@ -23,7 +23,7 @@ class DashboradController extends Controller
             return redirect('/');
         }else{
             $data['menu_active'] = "dashboard";
-        return view('dashboard.dashboard.index1', $data);
+            return view('dashboard.dashboard.index1', $data);
         }
         
     }

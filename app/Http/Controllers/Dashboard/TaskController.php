@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 use App\Models\List_phone_number;
 use App\Models\List_task_phone;
+use App\Models\Task;
 use App\Models\User;
 
 use Auth;
@@ -31,27 +32,27 @@ class TaskController extends Controller
         $employee = isset($_GET['employee']) ? $_GET['employee'] : '';
 
 
-        $model = List_task_phone::select('list_task_phone.*', 'transaction.status_payment');
+        $model = Task::select('task.*', 'transaction.status_payment');
         if ($start_date !== '' && $end_date === '') {
-            $model = $model->whereDate('list_task_phone.created_date', '=', $start_date);
+            $model = $model->whereDate('task.created_date', '=', $start_date);
         }
         if ($start_date !== '' && $end_date !== '') {
-            $model = $model->whereDate('list_task_phone.created_date', '>=', $start_date);
+            $model = $model->whereDate('task.created_date', '>=', $start_date);
         }
         if ($end_date !== '') {
-            $model = $model->whereDate('list_task_phone.created_date', '<=', $end_date);
+            $model = $model->whereDate('task.created_date', '<=', $end_date);
         }
         if ($employee !== '') {
-            $model = $model->where('list_task_phone.id_employee', $employee);
+            $model = $model->where('task.id_employee', $employee);
         }
 
-        $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'list_task_phone.phone');
+        $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'task.phone');
         if ($limit !== '' && $offset === '') {
             $model = $model->take($limit);
         }elseif ($limit !== '' && $offset !== '') {
             $model = $model->skip($offset)->take($limit);
         }
-        $model = $model->orderBy('list_task_phone.id','ASC')->get();
+        $model = $model->orderBy('task.id','ASC')->get();
 
         $model_employee = User::whereIn('role', ['employee', 'admin'])->get();
 
@@ -73,20 +74,20 @@ class TaskController extends Controller
         $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : date('Y-m-d');
         $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
 
-        $model = List_task_phone::select('list_task_phone.*', 'transaction.status_payment');
+        $model = Task::select('task.*', 'transaction.status_payment');
         if ($start_date !== '' && $end_date === '') {
-            $model = $model->whereDate('list_task_phone.created_date', '=', $start_date);
+            $model = $model->whereDate('task.created_date', '=', $start_date);
         }
         if ($start_date !== '' && $end_date !== '') {
-            $model = $model->whereDate('list_task_phone.created_date', '>=', $start_date);
+            $model = $model->whereDate('task.created_date', '>=', $start_date);
         }
         if ($end_date !== '') {
-            $model = $model->whereDate('list_task_phone.created_date', '<=', $end_date);
+            $model = $model->whereDate('task.created_date', '<=', $end_date);
         }
 
         $user_id = Auth::user()->id;
-        $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'list_task_phone.phone')->where(['list_task_phone.id_employee' => $user_id]);
-        $model = $model->orderBy('list_task_phone.id','ASC')->get();
+        $model = $model->leftJoin('transaction', 'transaction.phone', '=', 'task.phone')->where(['task.id_employee' => $user_id]);
+        $model = $model->orderBy('task.id','ASC')->get();
 
         $data['result_model'] = $model;
         $data['start_date'] = $start_date;
@@ -103,19 +104,27 @@ class TaskController extends Controller
             for ($i=0; $i < count($data) ; $i++) { 
                 $phone = $this->clean_str($data[$i][0]);
 
-                $cek_list = List_phone_number::where(['phone' => $phone])->first();
+                // $cek_list = List_phone_number::where(['phone' => $phone])->first();
+                $cek_list = Task::where(['phone' => $phone])->first();
                 if (is_null($cek_list)) {
-                    $create_list = List_phone_number::create([
-                        'phone' => $phone,
-                        'car_name' => $data[$i][1],
-                        'price' => isset($data[$i][2]) ? $data[$i][2] : '',
-                        'created_date' => $date_upload
-                    ]);
+                    // $create_list = List_phone_number::create([
+                    //     'phone' => $phone,
+                    //     'car_name' => $data[$i][1],
+                    //     'price' => isset($data[$i][2]) ? $data[$i][2] : '',
+                    //     'created_date' => $date_upload
+                    // ]);
 
-                    $create_task = List_task_phone::create([
+                    // $create_task = List_task_phone::create([
+                    //     'phone' => $phone,
+                    //     'car_name' => $data[$i][1],
+                    //     'price' => isset($data[$i][2]) ? $data[$i][2] : '',
+                    //     'id_employee' => Auth::user()->id,
+                    //     'created_date' => $date_upload
+                    // ]);
+
+                    $add_task = Task::create([
                         'phone' => $phone,
                         'car_name' => $data[$i][1],
-                        'price' => isset($data[$i][2]) ? $data[$i][2] : '',
                         'id_employee' => Auth::user()->id,
                         'created_date' => $date_upload
                     ]);
@@ -146,9 +155,10 @@ class TaskController extends Controller
     {
         // dd($request->id_number);
         foreach ($request->id_number as $key => $value) {
-            $model = List_task_phone::findOrFail($value);
+            $model = Task::findOrFail($value);
 
             $model->id_employee = $request->assign_to;
+            $model->created_date = $request->date_assign;
             $model->save();
             // dd($model);
         }

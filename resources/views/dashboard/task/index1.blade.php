@@ -153,6 +153,15 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 col-form-label">Date Assign : </label>
+                                    <div class="col-sm-12">
+                                        <input type="date" class="form-control" id="date_assign" name="date_assign" value="{{ date('Y-m-d') }}">
+                                    </div>
+                                </div>
+                            </div>
                             
                             <div class="col-md-4">
                                 <div class="form-group">
