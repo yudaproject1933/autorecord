@@ -210,7 +210,7 @@ class CheckoutController extends Controller
         }else{      //hanya checkout
 
             $id_user = null;
-            $get_id_user = List_task_phone::where(['phone' => $phone])->first();
+            $get_id_user = Task::where(['phone' => $phone])->first();
             if ($get_id_user) {
                 $id_user = $get_id_user->id_employee;
             }
