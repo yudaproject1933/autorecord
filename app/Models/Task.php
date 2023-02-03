@@ -13,7 +13,7 @@ class Task extends Model
     protected $primaryKey = 'id';
     public $timestamps = false; 
 
-    protected $fillable = ['phone','car_name','price','id_employee','created_date','updated_date'];
+    protected $fillable = ['phone','car_name','id_employee','created_date','updated_date'];
 
     public function user()
     {

@@ -10,9 +10,9 @@
 
             <!-- /.intro content -->
             <div class="col-md-6 wow slideInRight">
-                <h3>ABOUT Vehicle Data 3000</h3>
+                <h3>ABOUT Vehicle Data 2000</h3>
                 <p>
-                    Vehicle Data 3000 is proud to be a service that provides vehicle history reports that display historical data from each used vehicle. If you are selling a vehicle make sure you have a history report to make a fast and secure transaction. Data shows that used car sellers in 35% of cases get the asking price when providing a detailed VIN check of their vehicle. Buying a vehicle? It is highly recommended to do a VIN check on the Vehicle History Report before buying a used vehicle to learn the true history before making a purchase. We have saved our customers thousands of dollars from buying vehicles with a hidden past.
+                    Vehicle Data 2000 is proud to be a service that provides vehicle history reports that display historical data from each used vehicle. If you are selling a vehicle make sure you have a history report to make a fast and secure transaction. Data shows that used car sellers in 35% of cases get the asking price when providing a detailed VIN check of their vehicle. Buying a vehicle? It is highly recommended to do a VIN check on the Vehicle History Report before buying a used vehicle to learn the true history before making a purchase. We have saved our customers thousands of dollars from buying vehicles with a hidden past.
                 </p>
 
                 <div class="btn-section"><a href="#feature" class="btn-default">Learn More</a></div>
@@ -301,7 +301,7 @@
                         <div class="box">
 
                             <!-- /.testimonial content -->
-                            <p class="message text-center">"I entered the registration number of the vehicle I want to purchase on the Vehicle Data 3000 website and it gave me  a detailed report of the vehicle that includes important recall inforamtion and notifies me of the real condition of my vehicle."</p>
+                            <p class="message text-center">"I entered the registration number of the vehicle I want to purchase on the Vehicle Data 2000 website and it gave me  a detailed report of the vehicle that includes important recall inforamtion and notifies me of the real condition of my vehicle."</p>
                         </div>
                         <div class="client-info text-center">
 
@@ -339,7 +339,7 @@
                         <div class="box">
 
                             <!-- /.testimonial content -->
-                            <p class="message text-center">"At first, I was really worried about my used-vehicle purchase. I could see its present condition, but, at the same time, I wanted to know if something serious happened to it before. With the help of Vehicle Data 3000, now I can see the history of the vehicle I am going to buy."</p>
+                            <p class="message text-center">"At first, I was really worried about my used-vehicle purchase. I could see its present condition, but, at the same time, I wanted to know if something serious happened to it before. With the help of Vehicle Data 2000, now I can see the history of the vehicle I am going to buy."</p>
                         </div>
                         <div class="client-info text-center">
 
