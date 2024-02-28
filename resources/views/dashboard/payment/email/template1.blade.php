@@ -281,7 +281,7 @@ a {
                     <table class="main" width="100%" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="content-wrap aligncenter">
-                                <img src="https://vehicledata3000.com/public/images/logo7.png" width="60" class="rounded-circle">
+                                <img src="{{asset('images/logo/logo3.png')}}" width="60" class="rounded-circle">
                                 <table width="100%" cellpadding="0" cellspacing="0">
                                     <tbody>
                                         <tr>
