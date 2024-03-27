@@ -12,7 +12,7 @@
         // $('.fastlink-margin').before('<div class="col-12"><img src="' + '{{asset('images/logo/logo3.png')}}' + '" alt="logo" style="display: block; margin: 0 auto; margin-bottom: 20px;"></div>');
         // $('.fastlink-margin').before('<div class="col-12"><img src="{{ asset('images/logo/logo3.png') }}" alt="logo" style="display: block; margin: 0 auto; margin-bottom: 20px;"></div>');
         var root = window.location.origin;
-        var logoUrl = root + "/images/logo/logo3.png";
+        var logoUrl = root + "/public/images/logo/logo3.png";
         $('.fastlink-margin').before('<div class="col-12"><img src="' + logoUrl + '" alt="logo" style="display: block; margin: 0 auto; margin-bottom: 20px;"></div>');
 
 

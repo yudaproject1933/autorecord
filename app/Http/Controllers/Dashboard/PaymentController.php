@@ -111,7 +111,7 @@ class PaymentController extends Controller
 
     public function sendEmail($id)
     {
-        ini_set('max_execution_time', 180);
+        ini_set('max_execution_time', 300);
         $model = Transaction::findOrFail($id);
         $docs = Storage::path('app/public/report/'.$model['vin'].'.pdf');
 
