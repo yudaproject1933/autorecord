@@ -153,16 +153,21 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->id_number);
-        foreach ($request->id_number as $key => $value) {
-            $model = Task::findOrFail($value);
-
-            $model->id_employee = $request->assign_to;
-            $model->created_date = $request->date_assign;
-            $model->save();
-            // dd($model);
+        //assign task
+        // dd($request);
+        if ($request->action_task == "assign") {
+            foreach ($request->id_number as $key => $value) {
+                $model = Task::findOrFail($value);
+                $model->id_employee = $request->assign_to;
+                $model->created_date = $request->date_assign;
+                $model->save();
+            }
+        }else if ($request->action_task == "delete") {
+            foreach ($request->id_number as $key => $value) {
+                $model = Task::findOrFail($value);
+                $model->delete();
+            }
         }
-        
         return redirect('/task');
     }
 

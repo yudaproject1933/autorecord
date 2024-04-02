@@ -156,6 +156,18 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <label class="col-sm-12 col-form-label">Action : </label>
+                                    <div class="col-sm-12">
+                                        <select name="action_task" id="action_task" class="form-control">
+                                            <option value="assign">Assign Task</option>
+                                            <option value="delete">Delete Task</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label class="col-sm-12 col-form-label">Date Assign : </label>
                                     <div class="col-sm-12">
                                         <input type="date" class="form-control" id="date_assign" name="date_assign" value="{{ date('Y-m-d') }}">
@@ -167,10 +179,9 @@
                                 <div class="form-group">
                                     <label class="col-sm-12 col-form-label">&nbsp;</label>
                                     <div class="col-sm-12">
-                                        <button class="btn btn-warning"><i class="fa fa-tasks"></i> Assign To</button>
+                                        <button class="btn btn-warning"><i class="fa fa-check"></i> Submit</button>
                                     </div>
                                 </div>
-                                
                             </div>
                             
                         </div>
